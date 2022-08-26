@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Movie Generator</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Img/aicamp_icon.png') }}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+</head>
+
+<body id="page-top" class="font-monospace" style="font-family: monospace !important; background-color: #0e082a">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand hover-big hover-shadow" style="color: #fff;" href="#page-top">Movie Gen 🎥</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="#about">GLOSSARY</a></li>
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="#timeline">TIMELINE</a></li>
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="#team">TEAM</a></li>
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="#generate">MODEL</a></li>
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="#contact">CONTACT</a></li>
+                    <li class="nav-item"><a class="nav-link" href={{ url_for('results')}}>Try It</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style = "position:absolute; right:30px; down:10px;">
+
+          <a href="https://www.ai-camp.org/"><img src="{{ url_for('static', filename='Img/aicamp_icon.png') }}" alt="ai-camp" style="width:42px;height:42px;"target="_blank"></a>
+      </div>
+    </nav>
+  
+  <!-- Generator -->
+    <section class="content-section bg-primary" id="trythemodel">
+            <div class="container px-4 px-lg-5 text-center">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-5">
+                        <h2 class="text-light">Test out our model here!</h2>
+                        <p class="lead mb-5"><strong>Submit a prompt for LyricBot to work with below, and the results will appear on the right!</strong></p>
+                        <form action="{{url_for('generate_text')}}" method="POST" source="custom" name="form-1" >
+                          <div class="form-group">
+                            <textarea class="form-control-lg" rows="4" cols="50" placeholder="Write your prompt here..." required="" id="text_gen_input" name="prompt"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <button type="submit" class="btn btn-light" id="text_gen_button">Generate</button>
+                          </div>
+                        </form>
+                        <br>
+                    </div>
+                    <div class="col-lg-5">
+                      <h2 class="text-light">Results:</h2>
+                      <ul id="generated_ul">
+                      <p>
+                        {{ generated }}
+                        </p>
+                      <!-- generated items will be here. -->
+                      </ul>
+                    </div>
+                </div>
+            </div>
+        </section>

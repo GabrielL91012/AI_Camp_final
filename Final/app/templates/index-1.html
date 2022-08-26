@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Movie Generator</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Img/aicamp_icon.png') }}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+</head>
+
+<body id="page-top" class="font-monospace" style="font-family: monospace !important; background-color: #0e082a">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand hover-big hover-shadow" style="color: #fff;" href="#page-top">Movie Gen 🎥</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="#about">GLOSSARY</a></li>
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="#timeline">TIMELINE</a></li>
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="#team">TEAM</a></li>
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="#generate">MODEL</a></li>
+                    <li class="nav-item hover-shadow hover-big"><a class="nav-link" href="https://www.ai-camp.org/">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style = "position:absolute; right:30px; down:10px;">
+
+          <a href="https://www.ai-camp.org/"><img src="{{ url_for('static', filename='Img/aicamp_icon.png') }}" alt="ai-camp" style="width:42px;height:42px;"target="_blank"></a>
+      </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading"
+                style="text-shadow: #301b8d 10px 0 10px;font-style: normal; font-weight: bolder;">Stereo Zombies
+                Presents</div>
+            <div class="masthead-heading text-uppercase" style="text-shadow: #301b8d 10px 0 20px;">AI Movie Description
+                Generator</div>
+            <a class="btn btn-xl text-uppercase hover-big" style="background-color: #0e082a; color:#fff"
+                href="#generate">Try It!</a>
+        </div>
+    </header>
+    <!-- Generator -->
+    <section class="page-section" id="generate" style="position: relative;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Generate</h2>
+                <h3 class="section-subheading text-muted">Create the next best selling movie plot.</h3>
+            </div>
+            <form style="display: flex; flex-direction: column; align-items: center;">
+                <div class="form-group">
+                    <label for="promptInput">Prompt</label>
+                    <input type="text" class="form-control" style="width:min(1000px, 90vw)" id="promptInput">
+                    <small id="emailHelp" class="form-text text-muted">Try to be descriptive, unleash your inner movie writer!</small>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary" style="width:min(200px, 90vw)">Submit</button>
+                      <script>
+                          const EXAMPLE_OUTPUTS = ["On the outskirts of a small town", "When a lost spaceship enters", "A woman is murdered"];
+                          document.getElementById("promptInput").placeholder = "e.g: " + EXAMPLE_OUTPUTS[Math.floor(Math.random()*EXAMPLE_OUTPUTS.length)] +"...";
+                      </script>
+            </form>
+        </div>
+    </section>
+    <!-- About-->
+    <section class="page-section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Key Concepts</h2>
+                <h3 class="section-subheading text-muted">Model Components</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <img
+                            src="https://img.icons8.com/external-phatplus-lineal-color-phatplus/100/000000/external-generator-ecology-phatplus-lineal-color-phatplus.png" />
+                    </span>
+                    <h4 class="my-3">aitextgen</h4>
+                    <p class="text-muted">aitextgen is a python package that uses the PyTorch and Transformers libraries, specifically optimized for causal language modeling using gpt2’s architecture. aitextgen’s generate function provides massive control on the text generated to simplify debugging, api calls, and parallelization of text generation.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <img src="https://img.icons8.com/color/100/000000/artificial-intelligence.png" />
+                    </span>
+                    <h4 class="my-3">GPT-Neo</h4>
+                    <p class="text-muted">GPT-Neo is an open-source alternative developed by EleutherAI in response to GPT-3. Although not identical due to being trained on different datasets, GPT-Neo's performance in many NLP tasks is similar to GPT-3's, and actually performs considerably better than GPT-3 Ada.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <img src="https://img.icons8.com/color/100/000000/positive-dynamic.png" />
+                    </span>
+                    <h4 class="my-3">Training Data</h4>
+                    <p class="text-muted">We trained our model on datasets found on Kaggle and Github, and web scraped data as well. For our final models we used the dataset from kaggle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Timeline-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Timeline</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url_for('static', filename='Img/python_logo.png') }}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Week 1</h4>
+                                <h4 class="subheading">Python, Libraries, and Neural Networks</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">In the first week of camp, we were introduced to machine learning concepts and learned how to generate text using pre-trained models.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url_for('static', filename='Img/openai_logo.jpg') }}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Week 2 Wed and Thurs</h4>
+                                <h4 class="subheading">Data Compilation and the First Models</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">We began working on our project on Wednesday. We first scoured the web for appropriate datasets, then wrote scripts for cleaning the data and manipulated it into a form which our model could be trained on. Then we trained the models on Google Colab and Kaggle using their GPU clusters to speed up the training process. Some models took up to 3 hours to train and consisted of 10,000+ training epochs.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url_for('static', filename='Img/Feed-Forward-Neural-Network.gif') }}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Week 2, Fri</h4>
+                                <h4 class="subheading">Movie Description Model Finalized</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">On Friday, we finalized our model for generating a movie description based on a prompt, and began working on a model for generating an entire movie plot. This consisted of steps very similar to the steps we previously took to train the movie description model.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url_for('static', filename='Img/flask_logo.jpg') }}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Week 3</h4>
+                                <h4 class="subheading">Movie Plot Model Finalized, Website Development</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Real
+                                <br />
+                                World
+                                <br />
+                                Use?
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+    <!-- Team-->
+    <section class="page-section bg-light" id="team">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="../static/assets/img/team/3.jpg" alt="..." />
+                        <h4>Brandon Tung</h4>
+                        <p class="text-muted">Hi, I'm Brandon Tung from New York City. I enjoy fencing, debate, and sleeping early. I'm attending Stuyvesant High School as a sophomore this fall, and computer science is mandatory, so I figured I'd get some practice in.
+my bad yall it didnt send last night ☠️</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                   
+                        <img class="mx-auto rounded-circle" src="{{ url_for('static', filename='Img/daniel.jpg') }}"   
+                            alt="Image of Daniel Morgan" />
+                        <h4>Daniel Morgan</h4>
+                        <p class="text-muted">Hi, I'm Daniel Morgan from Toronto. I enjoy programming, board games and walking my dogs. Playing video games is my favourite pass time, although watching movies is a close second. I have been playing soccer for about 10 years. An interesting hobby I have is customizing mechanical keyboards.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="../static/assets/img/team/3.jpg" alt="..." />
+                        <h4>David Sy</h4>
+                        <p class="text-muted">I'm David Sy, hailing from Montgomery County, MD. I'm a sophomore that enjoys competitive programming and math. In my free time I play Clash Royale or watch anime. I co-lead my school's computer club where I teach about Python, neat algorithms, and programming problems.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="../static/assets/img/team/3.jpg" alt="..." />
+                        <h4>Om Sharma</h4>
+                        <p class="text-muted">Hello, I'm Om Sharma from Natick, MA. I enjoy programming, reading, paying tennis. In my free time, I sometimes play video games, or get lost on youtube. A hobby that I have is learning interesting aspects of math.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="../static/assets/img/team/3.jpg" alt="..." />
+                        <h4>Gabriel Leonard</h4>
+                        <p class="text-muted">Hi, I'm Gabriel Leonard from Queens, New York City. I enjoy programming, soccer, chess, and swimming. I enjoy playing video games in my free time and aim to get into prestigious schools such as mit. My dream is to become a successful web designer and possibly a chess grandmaster
+</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="../static/assets/img/team/3.jpg" alt="..." />
+                        <h4>Wesley Zartarian</h4>
+                        <p class="text-muted">I'm attending Chatham High School as a sophomore this year. They offer a coding class as an elective, but I'm pretty sure I'm ready for the second tier programming class, but taking the entry level class is a prerequisite : (
+In terms of sports, I've been on a year-round swim team for a very long time and enjoy fencing.
+My hobbies include playing video games, trading card games/tabletop games that are notable for having a rather long rulebook, and making internet memes (Including videos!)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-lg-start">Copyright &copy; Stereo Zombies 2022</div>
+                <div class="col-lg-6 text-lg-end flex-column" style="display:flex">
+                    <a href="https://icons8.com">Some Icons by Icons8</a>
+                    <a href="https://www.freepik.com/vectors/cartoon-space">Cartoon space vector created by vectorpouch
+                        - www.freepik.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
